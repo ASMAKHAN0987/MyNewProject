@@ -1,0 +1,15 @@
+.createCatBut{
+    /* width: 100%; */
+    display: flex;
+    justify-content: right;
+    padding-right: 10px;
+    margin-bottom: 30px;
+}
+.container{
+    width:100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
