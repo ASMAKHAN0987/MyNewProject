@@ -1,5 +1,4 @@
 .createCatBut{
-    /* width: 100%; */
     display: flex;
     justify-content: right;
     padding-right: 10px;
@@ -12,4 +11,8 @@
     justify-content: center;
     flex-direction: row;
     align-items: center;
+}
+.loading{
+    text-align: right;
+    padding-left: 30px;
 }
