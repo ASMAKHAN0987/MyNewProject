@@ -9,4 +9,8 @@ class Category extends Model
 {
     protected $fillable = ['category_name']; // Add 'category_name' to the fillable array
     use HasFactory;
+    public function product(){
+        return $this->hasMany(Product::class,'category_id');
+    }
 }
+

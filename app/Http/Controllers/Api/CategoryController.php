@@ -7,15 +7,21 @@ use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Http\Resources\CategoryResource;
-
+use
+App\Repositories\Interfaces\CategoryRepositoryInterface;
 class CategoryController extends Controller
 {
+    private $categoryRepository;
+    public function __construct(CategoryRepositoryInterface $categoryRepository){
+       $this->categoryRepository = $categoryRepository;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return CategoryResource::collection(Category::query()->orderBy('id','desc')->paginate(3));
+         $categories = $this->categoryRepository->all();
+         return $categories;
     }
 
     /**
@@ -24,7 +30,8 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         $data = $request->validated();
-        $category = Category::create($data);
+        // $category = Category::create($data);
+        $category = $this->categoryRepository->store($data);
         return response(new CategoryResource($category),201);
     }
 
@@ -33,25 +40,25 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return new CategoryResource($category);
+        return $this->categoryRepository->show($category);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(UpdateCategoryRequest $request, $id)
     {
        $data = $request->validated();
-       $category->update($data);
-       return new CategoryResource($category);
+       $updatedCategory = $this->categoryRepository->update($data,$id);
+       return new CategoryResource($updatedCategory);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        $category->delete();
+        $this->categoryRepository->delete($id);
         return response("",204);
     }
 }
