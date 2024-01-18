@@ -23,7 +23,6 @@ export default function Customers() {
     setLoading(true);
     axiosClient.get('/customer').then(({data}:{data:any})=>{
       const response:Customer[] = data.data;
-        console.log(data?.data)
       setLoading(false);
       setCustomer(response)
       // console.log(data);

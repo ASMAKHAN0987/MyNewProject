@@ -22,11 +22,8 @@ const CreateCategory = () => {
          navigate('/category');
          
     }).catch((err)=>{
-      // const response = err.response;
       setErrors(err?.response?.data?.errors)
-        // setErrors(response.data.errors.category_name)
          console.log(err?.response?.data?.errors,"this all are errors: ");
-      // }
     })
   }
   return (
