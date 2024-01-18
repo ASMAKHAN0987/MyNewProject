@@ -24,9 +24,7 @@ export default function Categorys() {
     axiosClient.get('/category').then(({data}:{data:any})=>{
       const response:Category[] = data.data;
       setLoading(false);
-      // console.log("this is respnse: ", response)
       setCategory(response)
-      // console.log(data.data);
     }).catch(error=>{
       setLoading(false);
       console.log(error);
