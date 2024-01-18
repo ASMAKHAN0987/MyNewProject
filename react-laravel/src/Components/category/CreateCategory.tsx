@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import {Alert} from '@mui/material';
 const CreateCategory = () => {
   const navigate = useNavigate();
+  console.log("hello");
   const [errors,setErrors] = useState("");
   const [value,setValue] = useState<string|undefined>();
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
