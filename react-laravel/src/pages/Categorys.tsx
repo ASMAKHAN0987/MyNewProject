@@ -2,7 +2,7 @@ import { useEffect,useState } from 'react';
 import Tables from '../Components/Table/Tables';
 import { Category} from '../Types/Types';
 import axiosClient from '../axios-client';
-import { Text } from '../utility/constant';
+import { Parameters, Text } from '../utility/constant';
 export default function Categorys() {
   useEffect(()=>{
       getCategory();
@@ -33,7 +33,7 @@ export default function Categorys() {
   }
   return (
     <>
-      <Tables category={category} loading={loading} text={Text.CATEGORY} parameter={"category"} onDelete={(id)=>onDelete(id)} link='createcategory'/>
+      <Tables category={category} loading={loading} text={Text.CATEGORY} parameter={Parameters.CATEGORY_PARA} onDelete={(id)=>onDelete(id)} link='createcategory'/>
     </>
   );
 }

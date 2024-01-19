@@ -2,7 +2,7 @@ import { useEffect,useState } from 'react';
 import axiosClient from '../axios-client';
 import Tables from '../Components/Table/Tables';
 import { Customer } from '../Types/Types';
-import { Text } from '../utility/constant';
+import { Parameters, Text } from '../utility/constant';
 export default function Customers() {
   useEffect(()=>{
       getProduct();
@@ -34,7 +34,7 @@ export default function Customers() {
   }
   return (
     <>
-    <Tables category={customer} loading={loading} text={Text.CUSTOMER} extra={"Email"} parameter={'customer'} onDelete={(id)=>onDelete(id)} link='createcustomer'/>
+    <Tables category={customer} loading={loading} text={Text.CUSTOMER} extra={"Email"} parameter={Parameters.CUSTOMER_PARA} onDelete={(id)=>onDelete(id)} link='createcustomer'/>
     </>
   );
 }

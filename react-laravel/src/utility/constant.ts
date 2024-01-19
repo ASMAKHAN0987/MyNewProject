@@ -9,3 +9,10 @@ export enum Selects{
     ADD_CATEGORY = "Add Category",
     PRODUCT = "product"
 }
+
+export enum Parameters{
+    CATEGORY_PARA =  "category",
+    PRODUCT_PARA = "product",
+    CUSTOMER_PARA = "customer"
+
+}
