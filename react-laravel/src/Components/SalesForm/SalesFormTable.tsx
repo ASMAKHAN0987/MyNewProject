@@ -11,6 +11,7 @@ import Paper from '@mui/material/Paper';
 import axiosClient from '../../axios-client';
 import { Category, Product, Row } from '../../Types/Types';
 import DropDown from '../DropDown/DropDown';
+import { Selects } from '../../utility/constant';
 export default function SalesFormTable() {
     useEffect(()=>{
         getCategory();
@@ -182,11 +183,11 @@ export default function SalesFormTable() {
             rows?.map((row)=>(
             <TableRow key={row.id}>
               <TableCell component="th" scope="row">
-                 <DropDown selectData={row.selectDataCat} handleChange={(e:SelectChangeEvent<string>)=>handleChangeCat(e,row.id)} dropDowndata={category} label={"Add Category"}/>
+                 <DropDown selectData={row.selectDataCat} handleChange={(e:SelectChangeEvent<string>)=>handleChangeCat(e,row.id)} dropDowndata={category} label={Selects.ADD_CATEGORY}/>
               </TableCell>
               <TableCell component="th" scope="row">
                 <DropDown selectData={row.selectDataProd} handleChange={(e:SelectChangeEvent<string>)=>handleChangeProd(e,row.id)} 
-                dropDowndata={row.product} label={"product"} id={row.id}/>
+                dropDowndata={row.product} label={Selects.PRODUCT} id={row.id}/>
               </TableCell>
               <TableCell component="th" scope="row">
               <TextField id="outlined-basic" label="Outlined" variant="outlined" value={row.price} itemType='number'/>

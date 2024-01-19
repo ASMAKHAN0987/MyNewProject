@@ -2,6 +2,7 @@ import { useEffect,useState } from 'react';
 import axiosClient from '../axios-client';
 import Tables from '../Components/Table/Tables'
 import { Product } from '../Types/Types';
+import { Text } from '../utility/constant';
 export default function Products() {
   useEffect(()=>{
       getProduct();
@@ -31,7 +32,7 @@ export default function Products() {
   }
   return (
     <>
-    <Tables category={product} loading={loading} text={"Product"} extra={"Category"} onDelete={(cat)=>onDelete(cat)} link={"createProduct"} parameter={'product'} extra2={"price"}/>
+    <Tables category={product} loading={loading} text={Text.PRODUCT} extra={"Category"} onDelete={(cat)=>onDelete(cat)} link={"createProduct"} parameter={'product'} extra2={"price"}/>
     </>
   );
 }

@@ -5,6 +5,7 @@ import SalesFormTable from './SalesFormTable'
 import axiosClient from '../../axios-client'
 import { SelectChangeEvent } from '@mui/material'
 import { Customer } from '../../Types/Types'
+import { Selects } from '../../utility/constant'
 const SaleForm = () => {
     useEffect(()=>{
         getProduct();
@@ -26,7 +27,7 @@ const SaleForm = () => {
       }
   return (
     <>
-       <div className='margin'>Select Customer: <DropDown selectData={selectCustomer} handleChange={(e)=>handleChange(e)} dropDowndata={customer!} label={"Select Customer"}/>
+       <div className='margin'>Select Customer: <DropDown selectData={selectCustomer} handleChange={(e)=>handleChange(e)} dropDowndata={customer!} label={Selects.SELECT_CUSTOMER}/>
         <SalesFormTable/>
        </div>
     </>

@@ -8,6 +8,7 @@ import { Button } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
 import { Category,Customer, Data, Product } from '../../Types/Types';
+import { Text } from '../../utility/constant';
 export default function Tables({category,extra,extra2,loading,text,parameter,onDelete,link}:Data) {
   return (
     <>
@@ -40,19 +41,19 @@ export default function Tables({category,extra,extra2,loading,text,parameter,onD
            {category?.map((cat)=>(
             <TableRow key={cat?.id}>
               <TableCell component="th" scope="row">
-              {text==="Customer" && (cat as Customer)?.name}
-              {text==="Product" && (cat as Product)?.name}
-              {text==="Category" && (cat as Category)?.category_name}
+              {text===Text.CUSTOMER && (cat as Customer)?.name}
+              {text===Text.PRODUCT && (cat as Product)?.name}
+              {text===Text.CATEGORY && (cat as Category)?.category_name}
               </TableCell>
               {extra &&
               <TableCell component="th" scope="row">
-                {text==="Customer" && (cat as Customer)?.email}
-                {text==="Product" && (cat as Product)?.category?.category_name}
+                {text===Text.CUSTOMER && (cat as Customer)?.email}
+                {text===Text.PRODUCT && (cat as Product)?.category?.category_name}
               </TableCell>
               }
               {extra2 &&
               <TableCell component="th" scope="row">
-                {text==="Product" && (cat as Product)?.price}
+                {text===Text.PRODUCT && (cat as Product)?.price}
               </TableCell>
               }
               <TableCell align="right">

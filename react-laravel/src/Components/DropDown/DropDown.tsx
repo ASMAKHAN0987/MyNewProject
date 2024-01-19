@@ -1,6 +1,7 @@
 import { Select } from '@mui/material'
 import {MenuItem} from '@mui/material'
 import { Category, Customer, DropDownProps, Product } from '../../Types/Types'
+import { Selects } from '../../utility/constant'
 const DropDown = ({selectData,handleChange,dropDowndata,label,id}:DropDownProps) => {
   return (
     <>
@@ -13,9 +14,9 @@ const DropDown = ({selectData,handleChange,dropDowndata,label,id}:DropDownProps)
         >
         {dropDowndata?.map((cat) => (
         <MenuItem key={cat?.id} value={cat?.id}>
-            {label === "Select Customer" && (cat as Customer)?.name}
-            {label === "Add Category" && (cat as Category)?.category_name}
-            {label === "product" && (cat as Product)?.name}
+            {label === Selects.SELECT_CUSTOMER && (cat as Customer)?.name}
+            {label === Selects.ADD_CATEGORY && (cat as Category)?.category_name}
+            {label === Selects.PRODUCT && (cat as Product)?.name}
         </MenuItem>
         ))}
         </Select>
